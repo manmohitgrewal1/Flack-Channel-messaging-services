@@ -1,0 +1,383 @@
+/*
+======================================
+Nav bar
+======================================
+*/
+nav {
+  background-color: #94618e;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.logo {
+  flex: 1;
+  padding: 10px;
+}
+.logo img {
+  width: auto;
+  height: 110px;
+  position: relative;
+  left: 60px;
+}
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+/*
+======================================
+Hamburger dropdown
+======================================
+*/
+
+#loggedin_user {
+  font-family: "Alegreya SC", serif;
+  font-size: x-large;
+  font-weight: 400;
+  border: 1px solid Black;
+  padding: 5px;
+}
+#loggedin_user::before {
+  content: "Welcome ";
+}
+#loggedin_user::after {
+  content: "!";
+}
+.rt {
+  margin: 10px;
+}
+#user_link{
+color: #2588b0;
+
+}
+#hamburger {
+  width: 60px;
+  z-index: 1;
+  height: 50px;
+  position: relative;
+  bottom: 5%;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.circle {
+  background-color: rgba(212, 145, 87, 0.87);
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: relative;
+  left: 10%;
+  bottom: 5%;
+}
+.circle .line {
+  background-color: rgb(250, 235, 204);
+  width: 70%;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  margin: 3px;
+  height: 5px;
+  position: relative;
+  left: 9%;
+  top: 28%;
+  transition: cubic-bezier(0.86, 0.8, 0.1, 1.8) 0.3s;
+}
+.icon.active .one {
+  transform: rotate(45deg);
+  top: 40%;
+}
+.icon.active .three {
+  transform: rotate(-45deg);
+  top: 10%;
+}
+.icon.active .two {
+  transform: rotate(-45deg);
+  top: 25%;
+}
+.curtain {
+  position: absolute;
+
+  top: -80%;
+  height: 600px;
+  width: 100%;
+}
+.curtain li {
+  list-style-type: none;
+  padding: 5%;
+  font-size: xx-large;
+  font-family: "Abril Fatface", cursive;
+  text-align: center;
+  background-color: #dfa65b;
+}
+.curtain.active {
+  position: absolute;
+  z-index: 1;
+  animation-name: scroll_down;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  height: 600px;
+  width: 100%;
+}
+
+@keyframes scroll_down {
+  from {
+    top: -80%;
+  }
+  to {
+    top: 0%;
+  }
+}
+.side_container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  top: 50%;
+  width: 20%;
+  height: 100vh;
+  background-color: #94618e;
+}
+.create_channel {
+  width: 100%;
+  height: 30vh;
+  margin-bottom: 10px;
+}
+.channel_list {
+  width: 100%;
+  height: 100vh;
+}
+.content_main {
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #f5eae2;
+}
+.body {
+  display: flex;
+}
+.content_msg {
+  bottom: 15%;
+  position: relative;
+  width: 100%;
+  height: 65%;
+}
+/*
+======================================
+MESSAGE BOX
+======================================
+*/
+.wrapper {
+  position: absolute;
+  margin: 20px;
+  width: 77%;
+  height: 15%;
+  left: 20%;
+  overflow: hidden;
+  bottom: 0%;
+  top: 81%;
+  border-radius: 10px;
+  background-color: #fedcd2;
+}
+.wrapper_input {
+  position: relative;
+  width: 90%;
+  height: 60%;
+  left: 2%;
+  top: 20%;
+  outline: none;
+  background: none;
+  border: none;
+  transform: translateY(50%);
+}
+.wrapper_label {
+  position: absolute;
+  left: 2%;
+  height: 60%;
+  width: 85%;
+  top: 30%;
+  border-bottom: 3px solid slategrey;
+  pointer-events: none;
+}
+.wrapper_label::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  height: 60%;
+  width: 100%;
+  top: 44%;
+  transform: translateX(-200%);
+  border-bottom: 3px solid teal;
+  transition: 0.5s;
+  animation: ease;
+  pointer-events: none;
+}
+span {
+  position: relative;
+  top: 55%;
+  color: slategrey;
+  transition: 1s;
+  animation: all 0.2 ease;
+  font-weight: bold;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.wrapper input:focus + label span {
+  color: teal;
+  top: 0;
+}
+.wrapper input:focus + .wrapper_label::after {
+  transform: translateX(0%);
+}
+.img {
+  position: absolute;
+  transform: translate(2050%, 400%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 128, 128, 0.726);
+  cursor: pointer;
+  border-radius: 50%;
+}
+#send_btn {
+  position: relative;
+  top: 50%;
+  right: 1.9%;
+  z-index: 1;
+}
+/*
+======================================
+Create Channel
+======================================
+*/
+.create_channel h5 {
+
+  font-family: "Alegreya SC", serif;
+  font-size: 130%;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
+  color: whitesmoke;
+}
+.inp_channel {
+  width: 80%;
+  height: auto;
+  background: #fedcd2;
+  position: relative;
+  transform: translate(10%, 40%);
+  color: black;
+}
+.create_channel button {
+  position: relative;
+  transform: translate(135%, 80%);
+}
+/*
+======================================
+Channel list
+======================================
+*/
+
+.channel_list h5 {
+  font-family: "Alegreya SC", serif;
+  /* font-family: "Special Elite", cursive; */
+  font-size: 130%;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
+  color: whitesmoke;
+}
+.channel_list ul {
+  background-color: #fedcd2;
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 20px;
+  list-style-type: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.channel_list li {
+  line-height: 40px;
+  padding-left: 10px;
+}
+#ch_name{
+  font-size: large;
+  color: #2588b0;
+  font-weight: 500;
+}
+/*
+======================================
+Message box
+======================================
+*/
+.content_msg_main {
+  width: 95%;
+  padding: 10px;
+  transform: translate(2.5%, 4%);
+  overflow-y: auto;
+  overflow: scroll;
+  height: 90%;
+  position: absolute;
+  background-color: #fedcd2;
+  border-radius: 10px;
+}
+.outter{
+  display: flex;
+  flex-direction: column-reverse;
+  position: absolute;
+  width: 90%;
+
+}
+.content_msg_main ul{
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-end;
+  width: 90%;
+  height: auto;
+  bottom: 0;
+  left: -10px;
+}
+#message_ul li {
+  list-style-type: none;
+  font-weight: bold;
+  font-size: small;
+  padding-top: 5px;
+  padding-left: 10px;
+  background-color: #e9eef0;
+  border-radius: 15px;
+  margin: 10px;
+  width: 100%;
+  height: auto;
+}
+.time {
+  font-size: x-small;
+  font-style: italic;
+}
+#icon_msg {
+  position: absolute;
+}
+#message_ul li p {
+  position: relative;
+  left: 40px;
+}
+#text {
+  font-size: medium;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  bottom: 15px;
+}
+#active_channel {
+  font-style: normal;
+  font-family: "Special Elite", cursive;
+  font-size: large;
+  position: absolute;
+  text-align: center;
+  top: -8px;
+  text-align: center;
+  left: 40%;
+}
+#atv_ch{
+  color: Black;
+  font-weight: 300;
+}
