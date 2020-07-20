@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <link
+  href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&family=Black+Ops+One&family=Bungee+Inline&family=IBM+Plex+Sans+Condensed&family=Open+Sans&family=Press+Start+2P&family=Righteous&family=Shadows+Into+Light&family=Source+Sans+Pro&family=Special+Elite&display=swap"
+  rel="stylesheet"
+  />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../static/style.css" />
+  <title>Flack</title>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/static/logo.png" alt="logo" />
+      </div>
+      <div class="curtain">
+        <li><a href="">About us</a></li>
+        <li><a href="">Privacy Policy</a></li>
+        <li><a href="">Contact us</a></li>
+      </div>
+      <div class="right">
+        <div class="rt signin">
+          <h1 id="loggedin_user"><a id="user_link" href="#"></a></h1>
+        </div>
+        <div id="hamburger" class="rt">
+          <div class="circle icon">
+            <span class="line one"></span>
+            <span class="line two"></span>
+            <span class="line three"></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="body">
+    <div class="side_container">
+      <div class="create_channel">
+        <hr
+        width="200px"
+        style="border: 1px solid#decc85; position: relative;"
+        />
+        <h5>Create Channels</h5>
+        <form class="create_channel_form" action="/" method="post" >
+          <input
+          type="text"
+          autocomplete="off"
+          class="form-control inp_channel"
+          placeholder="Name"
+          name="inp_create_channel"
+          />
+          <button id="create_btn" class="btn btn-primary">Create</button>
+        </form>
+      </div>
+      <div class="channel_list">
+        <hr
+        width="200px"
+        style="border: 1px solid#decc85; position: relative;"
+        />
+        <h5>Channels</h5>
+        <ul id="list_of_channels">
+          {% for run in channel_list %}
+          <li># <a href="#" id="ch_name"onclick="switch_channel(this.innerHTML)">{{run}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="content_main">
+      <div class="content_msg">
+        <h3 id="active_channel">On channel: #<span id="atv_ch"></span></h3>
+        <div class="content_msg_main">
+          <div class="outter">
+            <ul id="message_ul">
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <input class="wrapper_input" type="text" />
+        <label class="wrapper_label" for=""><span>Message</span></label>
+        <input  id="send_btn"type="image" src="/static/send (1).png" value="">
+      </div>
+      <div class="img">
+      </div>
+    </div>
+  </section>
+  <script src="/static/script.js"></script>
+</body>
+</html>
